@@ -19,11 +19,6 @@ def run_tdmi_app():
 - The results table shows features for every segment, channel, and file.
 """)
 
-    # Try to load the image and show a friendly error if it fails
-    try:
-        st.image("/Users/wankhai/Documents/EEGDashboard/TDSignals.png", caption="Time Domain EEG Signals", use_container_width=True)
-    except Exception as e:
-        st.warning(f"Could not load image: {e}")
 
     uploaded_zip = st.file_uploader("Upload ZIP file containing EEG CSVs (organized by class folders)", type=["zip"])
 
@@ -122,3 +117,7 @@ def run_tdmi_app():
                 st.pyplot(fig)
     else:
         st.info("No features found for the selected band or file. Please check your data and selection.")
+
+# Ensure the app runs when executed
+if __name__ == "__main__":
+    run_tdmi_app()
